@@ -1,0 +1,10 @@
+.boxlogin{
+  padding: 50px;
+  padding-left: 100px;
+  height: 540px;
+}
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }

@@ -1,0 +1,13 @@
+.contenido{
+    color:white;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+}
+.boxfooter{
+    padding: 10px;;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+}

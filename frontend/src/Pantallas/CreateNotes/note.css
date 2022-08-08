@@ -1,0 +1,28 @@
+.note{
+    padding-right: 50px;
+    padding-left:  50px;
+    padding-top:5px;
+    padding-bottom: 5px;
+    margin-right: 20px;
+    height: 540px;
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+}
+.foto{
+    padding: 10px;
+}
+.contenidos{
+    padding: 20px;
+}
+.h1{
+    font-size: 20px;
+    color:darkcyan;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+}
+.btn-note{
+    padding: 10px;
+
+}
