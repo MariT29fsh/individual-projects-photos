@@ -20,9 +20,9 @@ class App extends React.Component {
   <Route exact path='/' element={<LandingPage/>} />
   <Route  path='/login' element={<LoginPage/>} />
   <Route  path='/register' element={<RegisterPage/>} />
-  <Route  path='/mynotes' element={<MyNotes/>} />  
+  <Route  path='/welcome' element={<MyNotes/>} />  
   <Route path='/createnote' element={<Createnotes/>}/>
-  <Route path='/create' element={<Create/>}/>
+  <Route path='/mynotes/create' element={<Create/>}/>
   </Routes>  
   <Footer/>
       

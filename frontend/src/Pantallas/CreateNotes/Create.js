@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import axios from 'axios';
 //import { toast } from 'react-toastify';
 
 const Create = () => {
 
-    const [name, setName] = useState('');
+    const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState([]);
-
 
     //handle and convert it in base 64
     const handleImage = (e) =>{
@@ -29,10 +28,11 @@ const Create = () => {
     const submitForm = async (e) =>{
         e.preventDefault();
         try {
-            const {data} = await axios.post('http://localhost:3001/api/product/create', {name, description, image}
+            const {data} = await axios.post('http://localhost:3001/api/mynotes/create', 
+            {title, description, image}
             )
             if  (data.success === true){
-                setName('');
+                setTitle('');
                 setDescription('');
                 setImage('');
                 //toast.success('product created successfully')
@@ -51,7 +51,7 @@ const Create = () => {
         <form className=" col-sm-6 offset-3 pt-5 signup_form " enctype="multipart/form-data" onSubmit={submitForm}>
             
             <div className="form-outline mb-4">
-                <input onChange={(e)=>setName(e.target.value)} type="text" id="form4Example1" className="form-control"  value={name}/>
+                <input onChange={(e)=>setTitle(e.target.value)} type="text" id="form4Example1" className="form-control"  value={title}/>
                 <label className="form-label" htmlFor="form4Example1">Name</label>
             </div>
 

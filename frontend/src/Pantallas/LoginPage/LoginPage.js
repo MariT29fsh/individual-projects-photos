@@ -37,7 +37,7 @@ const LoginPage = ({ history }) => {
             console.log(data);
             setLoading(false);
             localStorage.setItem('userInfo', JSON.stringify(data));
-            navigate('/mynotes');
+            navigate('/welcome');
         } catch (error) {
             setLoading(false);
             setError(error.response.data.message)

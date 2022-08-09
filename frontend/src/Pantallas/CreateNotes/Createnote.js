@@ -13,7 +13,6 @@ const Createnote= () =>{
     const [successMsg, setSuccessMsg] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
-const CreatePhotoField =useRef();
 
     const handleFileInputChange =(e) =>{
         const file = e.target.files[0];
@@ -48,11 +47,9 @@ await axios.post('http://localhost:3001/create-animal',data,{headers:{"Content-T
         };
     };
     const uploadImage = async (base64EncodedImage) => {
-        //const data = { title, description,base64EncodedImage };
+
        try {
-        
-   
-            /*const config = {
+        const config = {
                 headers: {
                     'Content-Type': 'application/json' 
                 }
@@ -66,21 +63,11 @@ await axios.post('http://localhost:3001/create-animal',data,{headers:{"Content-T
                 config
 
             );
-            localStorage.setItem('userInfo', JSON.stringify({ data: base64EncodedImage }));
-            setFileInputState('');
-            setPreviewSource('');
-            setSuccessMsg('Image uploaded successfully');*/
-           await fetch('http://localhost:3001/api/upload', {
-
-                method: 'POST',
-                body: JSON.stringify({data:base64EncodedImage}),
-                headers: { 'Content-Type': 'application/json' },
-                mode: 'no-cors'
-            });
-           // console.log(data);
+            localStorage.setItem('userInfo', JSON.stringify({ data: data }));
             setFileInputState('');
             setPreviewSource('');
             setSuccessMsg('Image uploaded successfully');
+         
         } catch (err) {
             console.error(err);
             setErrMsg('Something went wrong!');

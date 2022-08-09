@@ -5,9 +5,9 @@ const MyNotes =() =>{
 return(
     <div>
     <MainScreen title='Bienvenido '>
-        <Link to='/create'>
+        <Link to='/mynotes/create'>
             <Button style={{marginLeft:10, marginBottom:6}} size="lg">
-                Create New Note
+                Que va hacer hoy dia?
             </Button>
             <Card>
             <Card.Header style={{display:'flex'}}>
@@ -23,8 +23,7 @@ return(
                     }}
                  />
                 <div>
-                    <Button>Edit  </Button>
-                    <Button variant='danger' className='mx-2'> Delete  </Button>
+                    <Button>View  </Button>
                 </div>
             </Card.Header>
             </Card>
