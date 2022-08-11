@@ -26,7 +26,7 @@ const LoginPage = ({ history }) => {
             }
 
             setLoading(true);
-            const { data } = await axios.post('http://localhost:3001/api/users/login',
+            const { data } = await axios.post('https://animals-photos-list.herokuapp.com/api/users/login',
                 {
                     email,
                     password,

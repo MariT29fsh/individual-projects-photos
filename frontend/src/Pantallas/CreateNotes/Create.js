@@ -28,7 +28,7 @@ const Create = () => {
     const submitForm = async (e) =>{
         e.preventDefault();
         try {
-            const {data} = await axios.post('http://localhost:3001/api/mynotes/create', 
+            const {data} = await axios.post('https://animals-photos-list.herokuapp.com/api/mynotes/create', 
             {title, description, image}
             )
             if  (data.success === true){

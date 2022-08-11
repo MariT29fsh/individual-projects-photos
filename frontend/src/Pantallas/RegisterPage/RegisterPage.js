@@ -33,7 +33,7 @@ const RegisterPage = () =>{
                     },
                 };
                 setLoading(true);
-                const {data} =await axios.post('http://localhost:3001/api/users/register',
+                const {data} =await axios.post('https://animals-photos-list.herokuapp.com/api/users/register',
                 {name,email,password,pic}, 
                 config
                 );
