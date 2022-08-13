@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.static("public"))
 
 var cors = require('cors');
-app.use(cors())
+app.use(cors(corsOptions))
 
 const corsOptions={
 origin:process.env.PATHHEROKU || "*", 

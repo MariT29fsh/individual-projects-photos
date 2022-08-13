@@ -2,7 +2,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useRef, useState } from "react";
 import axios from 'axios';
 import './note.css';
-import { propTypes } from 'react-bootstrap/esm/Image';
+
 const Createnote= () =>{
     const [title,setTitle]=useState('');
     const [description,setDescription]=useState('');
