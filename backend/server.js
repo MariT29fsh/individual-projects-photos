@@ -17,13 +17,14 @@ app.use(express.json());
 app.use(express.static("public"))
 
 var cors = require('cors');
-app.use(cors(corsOptions))
+
 
 const corsOptions={
 origin:process.env.PATHHEROKU || "*", 
 credentials:true,            //access-control-allow-credentials:true
 optionSuccessStatus:200
 }
+app.use(cors(corsOptions))
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.get('/', (req,res)=> {
     res.send("API is running");
