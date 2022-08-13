@@ -13,8 +13,35 @@ const Createnote= () =>{
     const [successMsg, setSuccessMsg] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
+    const handleImage =(e)=>{
+        const file =e.target.files[0];
+        setFileToBase(file);
+        console.log(file);
+    }
+    const setFileToBase= (file) =>{
+        const reader =new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = ()=>{
+            setImage(reader.result);
+        }
+    }
+    const handleForm= ()=>async (e)=>{
+        //e.preventDefault;
+        try{
+            const{data} = await axios.post('/api/product/create',
+            {title,description,image}
+            )
+            if(data.success == true){
+                setTitle('');
+                setDescription('');
+                setImage('');
+            }
+        }catch(error){
+            console.log(error);
+        }
 
-    const handleFileInputChange =(e) =>{
+    }
+   /* const handleFileInputChange =(e) =>{
         const file = e.target.files[0];
         previewFile(file);
         setSelectedFile(file);
@@ -36,7 +63,7 @@ const Createnote= () =>{
 //CreatePhotoField.current.value=""
 await axios.post('http://localhost:3001/create-animal',data,{headers:{"Content-Type":"multipart/form-data"}})*/
 
-        if (!selectedFile) return;
+      /*  if (!selectedFile) return;
         const reader = new FileReader();
         reader.readAsDataURL(selectedFile);
         reader.onloadend = () => {
@@ -72,7 +99,7 @@ await axios.post('http://localhost:3001/create-animal',data,{headers:{"Content-T
             console.error(err);
             setErrMsg('Something went wrong!');
         }
-    };
+    };*/
 
     return(
 
@@ -80,12 +107,12 @@ await axios.post('http://localhost:3001/create-animal',data,{headers:{"Content-T
             
             
             <h1>Crea un recuerdo...</h1>
-            <Form onSubmit={handleSubmitFile} className="form">
+            <Form onSubmit={handleForm} className="form">
             <div className='contenidos'>
         </div>
             <div className='foto'>
             <input type="file" name="image" 
-            onChange={handleFileInputChange}
+            //onChange={}
             value={fileInputState}
             className='form-input'/>
              <Button variant="primary" type="submit" className='btn-note'>

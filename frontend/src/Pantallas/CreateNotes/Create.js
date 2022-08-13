@@ -1,13 +1,14 @@
 import React, {  useState } from 'react'
+import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
-//import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const Create = () => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState([]);
-
+    const navigate=useNavigate();
     //handle and convert it in base 64
     const handleImage = (e) =>{
         const file = e.target.files[0];
@@ -27,22 +28,30 @@ const Create = () => {
     //submit the form
     const submitForm = async (e) =>{
         e.preventDefault();
+        const config={
+            headers: { 'Content-Type': 'application/json' },
+        }
+        console.log(title,description,image);
         try {
-            const {data} = await axios.post('https://animals-photos-list.herokuapp.com/api/mynotes/create', 
+            const {data} = await axios.post('http://localhost:3001/api/mynotes/create', 
             {title, description, image}
+        
             )
             if  (data.success === true){
                 setTitle('');
                 setDescription('');
                 setImage('');
-                //toast.success('product created successfully')
+                toast.success('product created successfully')
+                navigate('/mybook');
             }
             console.log(data);
         } catch (error) {
-            console.log(error)
+            console.log(error.message)
         }
 
     }
+
+  
 
   return (
    <>
@@ -52,7 +61,7 @@ const Create = () => {
             
             <div className="form-outline mb-4">
                 <input onChange={(e)=>setTitle(e.target.value)} type="text" id="form4Example1" className="form-control"  value={title}/>
-                <label className="form-label" htmlFor="form4Example1">Name</label>
+                <label className="form-label" htmlFor="form4Example1">Title</label>
             </div>
 
             

@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import axios from 'axios';
 import './note.css';
 
-const Upload =()=>{
+const Upload = (title,description)=>{
 
     const image={image,title,description}
     return(

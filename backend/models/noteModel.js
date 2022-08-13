@@ -2,22 +2,18 @@ const mongoose = require('mongoose');
 const {ObjectId} = mongoose.Schema;
 
 
-const productSchema = new mongoose.Schema({
+const productSchema = mongoose.Schema(
+    {
 
-   name: {
+   title: {
        type: String,
-       trim: true,
-       required : [true, 'Please add a product Name'],
        maxlength: 32
    },
 
    description: {
        type: String,
-       trim: true,
-       required : [true, 'Please add a product Description'],
        maxlength: 2000,
    },
-
 
    image: {
        public_id: {
@@ -31,8 +27,8 @@ const productSchema = new mongoose.Schema({
    
    },
  
-
-
 }, {timestamps: true});
 
-module.exports = mongoose.model("Product", productSchema);
+const Product =mongoose.model('Product',productSchema);
+module.exports=Product;
+//module.exports = mongoose.model("Product", productSchema);

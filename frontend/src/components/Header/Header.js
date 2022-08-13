@@ -25,7 +25,7 @@ const Header= ()=> {
             </Nav>
 
           <Nav>
-          <Nav.Link as={Link} to='/mynotes' className='letras'>
+          <Nav.Link as={Link} to='/mybook' className='letras'>
               My Book
             </Nav.Link>
               

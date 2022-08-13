@@ -7,7 +7,7 @@ return(
     <MainScreen title='Bienvenido '>
         <Link to='/mynotes/create'>
             <Button style={{marginLeft:10, marginBottom:6}} size="lg">
-                Que va hacer hoy dia?
+                Listo para escribir?
             </Button>
             <Card>
             <Card.Header style={{display:'flex'}}>

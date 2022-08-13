@@ -8,6 +8,9 @@ import LoginPage from './Pantallas/LoginPage/LoginPage';
 import RegisterPage from './Pantallas/RegisterPage/RegisterPage';
 import Createnotes from './Pantallas/CreateNotes/Createnote';
 import Create from './Pantallas/CreateNotes/Create';
+import Allnotes from './Pantallas/image/home';
+import Home from './Pantallas/image/home'
+import Image from './Pantallas/image/Upload'
 import { Route, Routes} from 'react-router-dom'
 
 class App extends React.Component {
@@ -20,15 +23,15 @@ class App extends React.Component {
   <Route exact path='/' element={<LandingPage/>} />
   <Route  path='/login' element={<LoginPage/>} />
   <Route  path='/register' element={<RegisterPage/>} />
-  <Route  path='/welcome' element={<MyNotes/>} />  
+  <Route  path='/mybook' element={<MyNotes/>} />  
   <Route path='/createnote' element={<Createnotes/>}/>
   <Route path='/mynotes/create' element={<Create/>}/>
+  <Route path='/mynotes/all' element={<Allnotes/>}/>
+  <Route path='/home' element={<Home/>}/>
+  <Route path='/image' element={<Image/>}/>
   </Routes>  
   <Footer/>
-      
-  
-    </div>
-    
+    </div>    
   
   )}
 }
