@@ -20,13 +20,12 @@ var cors = require('cors');
 app.use(cors())
 
 const corsOptions={
-origin:'http://localhost:3000', 
+origin:process.env.PATHHEROKU || "*", 
 credentials:true,            //access-control-allow-credentials:true
 optionSuccessStatus:200
 }
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-
-herapp.get('/', (req,res)=> {
+app.get('/', (req,res)=> {
     res.send("API is running");
     res.setHeader("Access-Control-Allow-Origin", "*")
 res.setHeader("Access-Control-Allow-Credentials", "true");
