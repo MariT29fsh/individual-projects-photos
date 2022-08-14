@@ -34,7 +34,7 @@ const Create = () => {
         console.log(title,description,image);
         try {
             const {data} = await axios.post('https://backend-photos.herokuapp.com/api/mynotes/create', 
-            {title, description, image}, config
+            {title, description, image}
         
             )
             if  (data.success === true){
@@ -42,7 +42,8 @@ const Create = () => {
                 setDescription('');
                 setImage('');
                 toast.success('product created successfully')
-                navigate('/mybook');
+                //navigate('/mybook');
+                navigate('/home');
             }
             console.log(data);
         } catch (error) {
@@ -51,7 +52,6 @@ const Create = () => {
 
     }
 
-  
 
   return (
    <>

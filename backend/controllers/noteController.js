@@ -41,7 +41,7 @@ const displayProduct = asyncHandler(async(req, res) =>{
     try{
         const images = await Product.find();
         console.log(images);
-    res.status(200).json({ data: images });
+    res.status(200).json(images );
 
            }catch (error) {
             console.log(error);

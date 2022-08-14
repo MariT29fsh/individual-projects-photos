@@ -17,10 +17,10 @@ const Home = () => {
     const fetchProduct =async () =>{
         
         try{
-            const data = await axios.get('http://localhost:3001/api/mynotes/all');
+            const data = await axios.get('https://backend-photos.herokuapp.com/api/mynotes/all');
             //const data  =await res.json();
             console.log(data);
-            setProducts([data]);
+            setProducts(data);
         }
         /*.then((prods)=>{
             //console.log("products", prods.data.products)
@@ -35,7 +35,7 @@ const Home = () => {
 
     useEffect(()=>{
         fetchProduct();
-   }, [])
+   });
     //filter product
     const filterProduct = (e) =>{
         e.preventDefault();
@@ -49,7 +49,7 @@ const Home = () => {
                 
                 <div className="row">
                    <div className="col-sm-3">
-                        <h2>Filter by category</h2>
+                        <h2> Books</h2>
                         <form >
                             <div className="form-group">
                                 <select onChange={(e) => setCategory(e.target.value)} name="" id="" className='form-control'>
@@ -68,9 +68,14 @@ const Home = () => {
                    <div className="col-sm-9">
                      <div className="row">
                             {
-                                products.forEach((p)=>(
-                                    <Card 
-                                    image ={"https://res.cloudinary.com/dmc99lkmj/image/upload/v1660284117/notes/c1b9di6wfv84f2ekeu9w.jpg"} productTitle={p.title} prodLink={`/product/${p._id}`} prodDescrip={p.description}/>
+                                products.map((p,key)=>(
+                                     //image ={"https://res.cloudinary.com/dmc99lkmj/image/upload/v1660284117/notes/c1b9di6wfv84f2ekeu9w.jpg"}
+                                    <Card
+                                    image={p.image}
+                                    productTitle={p.title} 
+                                     prodLink={`/product/${p._id}`} 
+                                     prodDescrip={p.description}/>
+                                     
                                 )) 
                             }
                      </div>
