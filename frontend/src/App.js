@@ -24,11 +24,11 @@ class App extends React.Component {
   <Route exact path='/' element={<LandingPage/>} />
   <Route  path='/login' element={<LoginPage/>} />
   <Route  path='/register' element={<RegisterPage/>} />
-  <Route  path='/mybook' element={<MyNotes/>} />  
+  <Route  path='/home' element={<MyNotes/>} />  
   <Route path='/createnote' element={<Createnotes/>}/>
   <Route path='/mynotes/create' element={<Create/>}/>
   <Route path='/mynotes/all' element={<Allnotes/>}/>
-  <Route path='/home' element={<Home/>}/>
+  <Route path='/mybook' element={<Home/>}/>
   <Route path='/image' element={<Image/>}/>
   <Route path='/product/:id' element={<Card/>}></Route>
   </Routes>  
