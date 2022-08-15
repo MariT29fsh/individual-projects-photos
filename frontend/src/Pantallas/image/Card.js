@@ -1,7 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom'
+import Unique from './Uniquecard';
 
 const Card = ({image, productTitle, prodDescrip,prodLink}) => {
+    const navigate=useNavigate();
+    const deleteCard = async() =>{
+        try {
+            const data = await axios.delete(`https://backend-photos.herokuapp.com/api/mynotes/product/delete/${prodLink}`);
+            navigate('/home');
+            //console.log(data.res.json());
+    
+        } catch (error) {
+            console.log(error);
+        }
+    
+       }
   return (
     <>
         <div className="col-md-4 " style={{marginTop: "20px"}}>
@@ -14,8 +28,8 @@ const Card = ({image, productTitle, prodDescrip,prodLink}) => {
                         <h2 className="font-weight-semibold mb-2">{productTitle} </h2> <a href="#" className="text-muted" data-abc="true"></a>
                         <h6>{prodDescrip}</h6>
                     </div>
-                    <button  type="submit" className="btn btn-primary btn-block mb-4">Create</button>
-                    <Link to={prodLink}><h6>Delete</h6></Link>
+                    <button  type="submit" variant="danger" className="btn btn-primary btn-block mb-4" onClick={()=> deleteCard()}>Delete</button>
+                    
                    
                 </div>
             </div>

@@ -32,11 +32,19 @@ const Home = () => {
     useEffect(()=>{
         fetchProduct();
    },[]);
-    //filter product
-    const filterProduct = (e) =>{
-        e.preventDefault();
-        fetchProduct();
+
+   const deleteCard = async(cardid) =>{
+    try {
+        const data = await axios.delete(`https://backend-photos.herokuapp.com/api/mynotes/product/delete/${cardid}`);
+        
+        console.log(data.res.json());
+
+    } catch (error) {
+        console.log(error);
     }
+
+   }
+
 
     return (
         <>
@@ -57,7 +65,8 @@ const Home = () => {
                                     <Card
                                     image={p.image.url}
                                     productTitle={p.title} 
-                                     prodLink={`/product/${p._id}`} 
+                                    prodLink={p._id}
+                                     //prodLink={`/product/${p._id}`} 
                                      prodDescrip={p.description}/>
                                      
                                 )) 
