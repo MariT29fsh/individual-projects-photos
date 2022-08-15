@@ -78,4 +78,22 @@ const deleteProduct =()=>asyncHandler(
     }
 ) 
 
-module.exports ={createProduct,displayProduct,deleteProduct};
+//a card
+const getProductById =  asyncHandler(
+    async (req, res) => {
+        try {
+            const { productId } = req.params;
+      
+            const product = await Product.findById(productId);
+            res.status(200).json(product);
+        } catch (error) {
+            console.log(error);
+            next(error);     
+        }
+    }
+
+) 
+
+module.exports ={createProduct,
+    displayProduct,
+    deleteProduct,getProductById};

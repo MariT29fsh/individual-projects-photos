@@ -14,8 +14,8 @@ const Card = ({image, productTitle, prodDescrip,prodLink}) => {
                         <h2 className="font-weight-semibold mb-2">{productTitle} </h2> <a href="#" className="text-muted" data-abc="true"></a>
                         <h6>{prodDescrip}</h6>
                     </div>
-               
-                    <Link to={prodLink}><h6>Details</h6></Link>
+                    <button  type="submit" className="btn btn-primary btn-block mb-4">Create</button>
+                    <Link to={prodLink}><h6>Delete</h6></Link>
                    
                 </div>
             </div>
