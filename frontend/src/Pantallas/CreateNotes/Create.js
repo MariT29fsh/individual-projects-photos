@@ -43,7 +43,7 @@ const Create = () => {
                 setImage('');
                 toast.success('product created successfully')
                 //navigate('/mybook');
-                navigate('/home');
+                navigate('/mybook');
             }
             console.log(data);
         } catch (error) {
