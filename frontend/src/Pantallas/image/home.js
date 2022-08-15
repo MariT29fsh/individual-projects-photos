@@ -7,10 +7,6 @@ import {Button} from 'react-bootstrap';
 const Home = () => {
 
     const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [category, setCategory] = useState('');
-    const [pageNumber, setPageNumber] = useState(1);
-    const [count, setCount] = useState(0);
 
     const fetchProduct =async () =>{
         

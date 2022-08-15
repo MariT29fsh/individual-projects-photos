@@ -28,9 +28,7 @@ const Card = ({image, productTitle, prodDescrip,prodLink}) => {
                         <h2 className="font-weight-semibold mb-2">{productTitle} </h2> <a href="#" className="text-muted" data-abc="true"></a>
                         <h6>{prodDescrip}</h6>
                     </div>
-                    <button  type="submit" variant="danger" className="btn btn-primary btn-block mb-4" onClick={()=> deleteCard()}>Delete</button>
-                    
-                   
+
                 </div>
             </div>
         </div>
