@@ -70,8 +70,11 @@ const Home = () => {
                    <div className="col-sm-9">
                      <div className="row">
                             {
-                                products.map((p,key)=>(
+                                (products.data || []).map((p) =>(                               // products.map((p,key)=>(
                                      //image ={"https://res.cloudinary.com/dmc99lkmj/image/upload/v1660284117/notes/c1b9di6wfv84f2ekeu9w.jpg"}
+                                     /*{(getNotes.data || []).map((note: any) => (
+        <NoteCard key={note._id} note={note} />
+        ))}*/
                                     <Card
                                     image={p.image}
                                     productTitle={p.title} 
