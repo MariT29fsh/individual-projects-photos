@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Card from '../image/Card';
-//import 'antd/dist/antd.css';
-//import { Pagination } from 'antd';
-
-
+import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap';
 
 const Home = () => {
 
     const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [category, setCategory] = useState('');
-    const [pageNumber, setPageNumber] = useState(1);
-    const [count, setCount] = useState(0);
 
     const fetchProduct =async () =>{
         
@@ -33,40 +27,26 @@ const Home = () => {
         fetchProduct();
    },[]);
 
-   const deleteCard = async(cardid) =>{
-    try {
-        const data = await axios.delete(`https://backend-photos.herokuapp.com/api/mynotes/product/delete/${cardid}`);
-        
-        console.log(data.res.json());
-
-    } catch (error) {
-        console.log(error);
-    }
-
-   }
-
-
     return (
         <>
             <div className="container pt-5 pb-5">
             <h2> Mis Recuerdos</h2>
                 <div className="row">
                    <div className="col-sm-3">                       
-                        
+                   <Link to='/mynotes/create'>
+            <Button style={{marginLeft:10, marginBottom:6}} size="lg">
+                Listo para escribir?
+            </Button></Link>
                    </div>
                    <div className="col-sm-9">
                      <div className="row">
                             {
                                 (products.data || []).map((p,key) =>(                               // products.map((p,key)=>(
-                                     //image ={"https://res.cloudinary.com/dmc99lkmj/image/upload/v1660284117/notes/c1b9di6wfv84f2ekeu9w.jpg"}
-                                     /*{(getNotes.data || []).map((note: any) => (
-        <NoteCard key={note._id} note={note} />
-        ))}*/
+
                                     <Card
                                     image={p.image.url}
                                     productTitle={p.title} 
                                     prodLink={p._id}
-                                     //prodLink={`/product/${p._id}`} 
                                      prodDescrip={p.description}/>
                                      
                                 )) 
